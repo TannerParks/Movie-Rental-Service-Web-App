@@ -6,10 +6,8 @@ This is my final submission for a web-based application designed specifically fo
 
 ### ***NOTE: Below the key features breakdown, I've uploaded screenshots of each page along with their corresponding create, read, update, and delete functionalities since the server was shutdown at the end of the term***
 ___
-Table of Contents
+### Table of Contents
 
-1. [Project Overview and Key Features](#overview)
-2. [Movie Page Screenshots](#movies)
 
 
 ### Project Overview: {#overview}

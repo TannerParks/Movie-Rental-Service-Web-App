@@ -44,7 +44,7 @@ SchlockBuster, a company previously disrupted by the streaming era, is now ventu
 
 ___
 
-### Web App Screenshots
+#### Web App Screenshots
 ## Movies page
 ![Movies landing page](UI_Captures/Movies.PNG)
 

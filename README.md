@@ -1,8 +1,8 @@
 # Movie-Rental-Service-Web-App
 Description:
 The Movie Rental Service Web App is an efficient web-based application designed specifically for database managers of a movie rental service (think Netflix when they were sending DVDs in the mail). This comprehensive application provides an interface for managing and maintaining the intricate database structure underlying a rental service. It leverages JavaScript, HTML, CSS, and utilizes SQL (MariaDB) for robust and efficient database management operations.
-
-
+_
+_
 Key Features:
 
 - Movie Database: The web app incorporates a Movies table that stores comprehensive information about the movies available in the rental service. Database managers can add, edit, and remove movie records, including details such as movieID, title, description, and duration. Additionally, search functionality has been implemented to allow searching for movies by their title, allowing for efficient retrieval of specific movies based on queries.

@@ -44,8 +44,8 @@ SchlockBuster, a company previously disrupted by the streaming era, is now ventu
 
 ___
 
-#### Web App Screenshots
-## Movies page
+## Web App Screenshots
+### Movies page
 ![Movies landing page](UI_Captures/Movies.PNG)
 
 ![Movies implementation of delete functionality](UI_Captures/Movies_DELETE.PNG)
@@ -55,7 +55,7 @@ ___
 ![Movies implementation of update functionality](UI_Captures/Movies_UPDATE.PNG)
 
 <br><br>
-## Users Page
+### Users Page
 ![Users landing page](UI_Captures/Users.PNG)
 
 ![Users implementation of delete functionality](UI_Captures/Users_DELETE.PNG)
@@ -65,7 +65,7 @@ ___
 ![Users implementation of update functionality](UI_Captures/Users_UPDATE.PNG)
 
 <br><br>
-## Rentals page
+### Rentals page
 ![Rentals landing page](UI_Captures/Rentals.PNG)
 
 ![Rentals implementation of delete functionality](UI_Captures/Rentals_DELETE.PNG)
@@ -75,7 +75,7 @@ ___
 ![Rentals implementation of update functionality](UI_Captures/Rentals_UPDATE.PNG)
 
 <br><br>
-## Reviews page
+### Reviews page
 ![Reviews landing page](UI_Captures/Reviews.PNG)
 
 ![Reviews implementation of delete functionality](UI_Captures/Reviews_DELETE.PNG)
@@ -83,7 +83,7 @@ ___
 ![Reviews implementation of insert functionality](UI_Captures/Reviews_INSERT.PNG)
 
 <br><br>
-## Actors page
+### Actors page
 ![Actors landing page](UI_Captures/Actors.PNG)
 
 ![Actors implementation of delete functionality](UI_Captures/Actors_DELETE.PNG)
@@ -91,7 +91,7 @@ ___
 ![Actors implementation of insert functionality](UI_Captures/Actors_INSERT.PNG)
 
 <br><br>
-## Actors-Movies junction page
+### Actors-Movies junction page
 ![ActMovs landing page](UI_Captures/ActMovs.PNG)
 
 ![ActMovs implementation of delete functionality](UI_Captures/ActMovs_DELETE.PNG)
@@ -99,7 +99,7 @@ ___
 ![ActMovs implementation of insert functionality](UI_Captures/ActMovs_INSERT.PNG)
 
 <br><br>
-## Genres page
+### Genres page
 ![Genres landing page](UI_Captures/Genres.PNG)
 
 ![Genres implementation of delete functionality](UI_Captures/Genres_DELETE.PNG)
@@ -107,7 +107,7 @@ ___
 ![Genres implementation of insert functionality](UI_Captures/Genres_INSERT.PNG)
 
 <br><br>
-## Genres-Movies junction page
+### Genres-Movies junction page
 ![GenMovs landing page](UI_Captures/GenMovs.PNG)
 
 ![GenMovs implementation of delete functionality](UI_Captures/GenMovs_DELETE.PNG)

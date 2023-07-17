@@ -86,7 +86,7 @@ ___
 ![Actors implementation of insert functionality](UI_Captures/Actors_INSERT.PNG)
 
 <br><br>
-## Actors-Movies intersection page
+## Actors-Movies junction page
 ![ActMovs landing page](UI_Captures/ActMovs.PNG)
 
 ![ActMovs implementation of delete functionality](UI_Captures/ActMovs_DELETE.PNG)
@@ -102,7 +102,7 @@ ___
 ![Genres implementation of insert functionality](UI_Captures/Genres_INSERT.PNG)
 
 <br><br>
-## Genres-Movies intersection page
+## Genres-Movies junction page
 ![GenMovs landing page](UI_Captures/GenMovs.PNG)
 
 ![GenMovs implementation of delete functionality](UI_Captures/GenMovs_DELETE.PNG)

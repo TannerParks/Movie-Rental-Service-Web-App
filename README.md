@@ -23,7 +23,7 @@
 - Movie-Genre Relationship: The Genres_Movies table acts as a junction table, linking movies and genres within the rental service. Database managers can manage the association between movies and genres using movieID (linked to Movies table) and genreID (linked to Genres table). This feature enables efficient categorization and searchability of movies based on genres. <br><br>
 
 
-**Movies page**
+## Movies page
 ![Movies landing page](UI_Captures/Movies.PNG)
 
 ![Movies implementation of delete functionality](UI_Captures/Movies_DELETE.PNG)
@@ -33,7 +33,7 @@
 ![Movies implementation of update functionality](UI_Captures/Movies_UPDATE.PNG)
 
 <br><br>
-**Users page**
+## Users Page
 ![Users landing page](UI_Captures/Users.PNG)
 
 ![Users implementation of delete functionality](UI_Captures/Users_DELETE.PNG)

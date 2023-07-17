@@ -1,0 +1,219 @@
+<html>
+<head>
+  <title>Rentals</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script language="JavaScript">
+    function showform(dowhat) {
+      /*
+      * Taken from people.html
+      * four DIVS: browse, insert, update, delete
+      * this function sets one visible the others not
+      */
+      if (dowhat == 'insert') {
+        document.getElementById('browse').style.display = 'none';
+        document.getElementById('insert').style.display = 'block';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+      }
+      else if (dowhat == 'update') {
+        document.getElementById('browse').style.display = 'none';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('update').style.display = 'block';
+        document.getElementById('delete').style.display = 'none';
+      }
+      else if (dowhat == 'delete') {
+        document.getElementById('browse').style.display = 'none';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'block';
+      }
+      else { //by default display browse
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+      }
+    }
+
+    function newRental() { showform('insert'); }
+    function browseRentals() { showform('browse'); }
+
+
+    function updateRental(rid) { 
+      fetch(`/rental/${rid}`)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('updateRentalID').value = data.rentalID;
+          // Select movie in dropdown
+          let movieSelect = document.getElementById('updateMovieID');
+          for (let i = 0; i < movieSelect.options.length; i++) {
+            if (movieSelect.options[i].value == data.movieID) {
+              movieSelect.options[i].selected = true;
+              break;
+            }
+          }
+          // Select user in dropdown
+          let userSelect = document.getElementById('updateUserID');
+          for (let i = 0; i < userSelect.options.length; i++) {
+            if (userSelect.options[i].value == data.userID) {
+              userSelect.options[i].selected = true;
+              break;
+            }
+          }
+          document.getElementById('updateRentalDate').value = data.rental_date;
+          showform('update');
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+
+
+    function deleteRental(rid, title) {
+      document.getElementById('deleteRentalID').value = rid;
+      document.getElementById('deleteRentedMovie').textContent = title;
+      document.getElementById('deleteRentalIDLabel').textContent = 'ID: ' + rid;
+      showform ('delete');
+    }
+
+  </script>
+</head>
+
+<body onload="browseRentals()">
+  <h1>Rentals</h1>
+
+  [ <a href="/movies">Movies</a> | <a href="/genres_movies">Genres Movies</a> | <a href="/genres">Genres</a> | <a href="/reviews">Reviews</a> | <a href="/rentals">Rentals</a> | <a href="/users">Users</a> | <a href="/actors_movies">Actors Movies</a> | <a href="/actors">Actors</a> ]
+
+  <div id="browse">
+    <p></p>
+
+    <div id="rentalTableDiv" style="width: 50%; height: 200px; overflow: auto;"> <!--Scrollable table-->
+      <table id="rentalTable" border="1" cellpadding="5">
+        <tr>
+         <th></th>
+         <th></th>
+          {{#each data.[0]}}
+          <th>
+              {{@key}}
+          </th>
+          {{/each}}
+        </tr>
+      
+        {{!-- For each row print rentalID, userID, movieID, rental_date --}}
+        {{#each data}}
+        <tr>
+          <td><a href="#" onClick="updateRental({{this.rentalID}})">Edit</a></td>
+          <td><a href="#" onclick="deleteRental({{this.rentalID}}, '{{this.title}}')">Delete</a></td>
+          <td>{{this.rentalID}}</td>
+          <td>{{this.userID}}</td>
+          <td>{{this.movieID}}</td>
+          <td>{{this.rental_date}}</td>
+        </tr>
+        {{/each}}
+     
+      </table>
+
+    </div>
+
+    <p></p>
+    <button type="button" name="myButton" onclick="newRental()">New Rental</button>
+
+    <script language="JavaScript"> // Minimizes big gaps between the button and the table
+      var table = document.getElementById('myTable');
+      var wrapper = document.getElementById('rentalTableDiv');
+      var maxHeight = 280;
+
+      if (table.offsetHeight < maxHeight) {
+        wrapper.style.height = table.offsetHeight + 'px';
+      } else {
+        wrapper.style.height = maxHeight + 'px';
+      }
+    </script>
+  </div>
+
+  <p>&nbsp;</p>
+
+  <div class="formContainer">
+    <div id="insert">
+      <form method="POST" id="addRental" action="/add-rental-html">
+        <fieldset>
+          <legend><strong>Add Rental</strong></legend>
+
+          <label>Movie<br></label>
+          <select name="movieID">
+            {{#each movies}}
+              <option value="{{this.movieID}}">{{this.title}}</option>
+            {{/each}}
+          </select>
+          <br>
+
+          <label>Rented by<br></label>
+          <select name="userID">
+            {{#each users}}
+              <option value="{{this.userID}}">{{this.email}}</option>
+            {{/each}}
+          </select>          
+          <br>
+
+          <label>Rental Date<br></label>
+          <input type="date" name="rental_date">
+          <br>
+
+        </fieldset>
+        <input class="btn" type="submit" id="addRental" value="Add Rental">
+        <input class="btn" type="button" value="cancel" onClick="browseRentals()">
+      </form>
+    </div>
+
+    <p>&nbsp;</p>
+
+    <div id="update">
+      <form method="POST" id="updateRental" action="/update-rental">
+        <fieldset>
+          <legend><strong>Update Rental</strong></legend>
+
+          <label>Movie<br></label>
+          <select name="movieID" id="updateMovieID">
+            {{#each movies}}
+              <option value="{{this.movieID}}">{{this.title}}</option>
+            {{/each}}
+          </select>
+
+          <input type="text" name="ID" id="updateRentalID" class="readonly-input" readonly onfocus="this.blur()" style="width: 100px;">            <br>
+
+          <label>Rented by<br></label>
+          <select name="userID" id="updateUserID">
+            {{#each users}}
+              <option value="{{this.userID}}">{{this.email}}</option>
+            {{/each}}
+          </select>          
+          <br>
+
+          <label>Rental Date<br></label>
+          <input type="date" name="rental_date" id="updateRentalDate">
+          <br>
+
+        </fieldset>
+        <input class="btn" type="submit" id="submitUpdateRental" value="Update Rental">
+        <input class="btn" type="button" value="cancel" onClick="browseRentals()">
+      </form>
+    </div>
+
+  </div>
+
+  <p>&nbsp;</p>
+
+  <div id="delete">
+    <form method="POST", id="deleteRental", action="/delete-rental">
+      <fieldset class="fields">
+      <legend><strong>Delete Rental</strong></legend>
+      <p>Are you sure you want to delete this rental?</p>
+      <p><strong id="deleteRentalIDLabel">ID:</strong> <span id="deleteRentedMovie"></span></p>
+      <input type="hidden" name="rentalID" id="deleteRentalID">
+      </fieldset>
+      <input class="btn" type="submit" id="DeleteRental" value="Delete Rental">
+      <input class="btn" type="button" value="cancel" onClick="browseRentals()">
+    </form>
+  </div>
+
+</body>
+</html>

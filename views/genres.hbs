@@ -1,0 +1,129 @@
+<html>
+<head>
+  <title>Genres</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script language="JavaScript">
+    function showform(dowhat) {
+      /*
+      * Taken from people.html
+      * four DIVS: browse, insert, update, delete
+      * this function sets one visible the others not
+      */
+      if (dowhat == 'insert') {
+        document.getElementById('browse').style.display = 'none';
+        document.getElementById('insert').style.display = 'block';
+        document.getElementById('delete').style.display = 'none';
+      }
+      else if (dowhat == 'update') {
+        document.getElementById('browse').style.display = 'none';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+      }
+      else if (dowhat == 'delete') {
+        document.getElementById('browse').style.display = 'none';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('delete').style.display = 'block';
+      }
+      else { //by default display browse
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+      }
+    }
+
+    function deleteGenre(gid, genreName) {
+      document.getElementById('deleteGenreID').value = gid;
+      document.getElementById('deleteGenreName').textContent = genreName;
+      document.getElementById('deleteGenreIDLabel').textContent = 'ID: ' + gid;
+      showform ('delete');
+    }
+
+    function newGenre() { showform('insert'); }
+    function browseGenres() { showform('browse'); }
+
+  </script>
+</head>
+
+<body onload="browseGenres()">
+  <h1>Genres</h1>
+
+  [ <a href="/movies">Movies</a> | <a href="/genres_movies">Genres Movies</a> | <a href="/genres">Genres</a> | <a href="/reviews">Reviews</a> | <a href="/rentals">Rentals</a> | <a href="/users">Users</a> | <a href="/actors_movies">Actors Movies</a> | <a href="/actors">Actors</a> ]
+
+  <div id="browse">
+    <p></p>
+
+    <div id="genreTableDiv" style="width: 30%; height: 200px; overflow: auto;"> <!--Scrollable table-->
+      <table id="genreTable" border="1" cellpadding="5">
+        <tr>
+         <th></th>
+          {{#each data.[0]}}
+          <th>
+              {{@key}}
+          </th>
+          {{/each}}
+        </tr>
+      
+        {{#each data}}
+        <tr>
+          <td><a href="#" onclick="deleteGenre({{this.genreID}}, '{{this.genre_name}}')">Delete</a></td>
+          <td>{{this.genreID}}</td>
+          <td>{{this.genre_name}}</td>
+        </tr>
+        {{/each}}
+     
+      </table>
+
+    </div>
+
+    <p></p>
+
+    <button type="button" name="myButton" onclick="newGenre()">New Genre</button>
+
+    <script language="JavaScript"> // Minimizes big gaps between the button and the table
+      var table = document.getElementById('genreTable');
+      var wrapper = document.getElementById('genreTableDiv');
+      var maxHeight = 280;
+
+
+      if (table.offsetHeight < maxHeight) {
+        wrapper.style.height = table.offsetHeight + 'px';
+      } else {
+        wrapper.style.height = maxHeight + 'px';
+      }
+    </script>
+  </div>
+
+  <p>&nbsp;</p>
+
+    <div id="insert" style="width: 40%;">
+      <form method="POST" id="addGenre" action="/add-genre-html">
+        <fieldset>
+          <legend><strong>Add Genre</strong></legend>
+
+          <label>Name<br></label>
+          <input type="text" name="genreName" required>
+          <br>
+
+        </fieldset>
+        <input class="btn" type="submit" id="addGenre" value="Add Genre">
+        <input class="btn" type="button" value="cancel" onClick="browseGenres()">
+      </form>
+    </div>
+
+    <p>&nbsp;</p>
+
+    <div id="delete">
+      <form method="POST" id="deleteGenre", action="/delete-genre">
+        <fieldset class="fields">
+          <legend><strong>Delete Genre</strong></legend>
+          <p>Are you sure you wish to delete the following?</p>
+          <p><strong id="deleteGenreIDLabel">ID:</strong> <span id="deleteGenreName"></span></p>
+          <input type="hidden" name="genreID" id="deleteGenreID">
+        </fieldset>
+        <input class="btn" type="submit" id="DeleteGenre" value="Delete Genre">
+        <input class="btn" type="button" value="cancel" onClick="browseGenres()">
+      </form>
+    </div>
+
+</body>
+</html>

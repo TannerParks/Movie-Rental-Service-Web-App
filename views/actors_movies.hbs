@@ -1,0 +1,146 @@
+<html>
+<head>
+  <title>Actor Movies</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script language="JavaScript">
+    function showform(dowhat) {
+      /*
+      * Taken from people.html
+      * four DIVS: browse, insert, update, delete
+      * this function sets one visible the others not
+      */
+      if (dowhat == 'insert') {
+        document.getElementById('browse').style.display = 'none';
+        document.getElementById('insert').style.display = 'block';
+        document.getElementById('delete').style.display = 'none';
+      }
+      else if (dowhat == 'update') {
+        document.getElementById('browse').style.display = 'none';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+      }
+      else if (dowhat == 'delete') {
+        document.getElementById('browse').style.display = 'none';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('delete').style.display = 'block';
+      }
+      else { //by default display browse
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+      }
+    }
+
+    function newActMov() { showform('insert'); }
+
+    function deleteActMov(movieID, actorID) {
+      document.getElementById('deleteMovieID').value = movieID;
+      document.getElementById('deleteActorID').value = actorID;
+      document.getElementById('deleteActorIDLabel').textContent = 'Movie ID: ' + movieID + '   Actor ID: ' + actorID;
+      showform('delete');
+    }
+
+    function browseActMovs() { showform('browse'); }
+
+  </script>
+</head>
+
+<body onload="browseActMovs()">
+  <h1>Actor Movies</h1>
+
+  [ <a href="/movies">Movies</a> | <a href="/genres_movies">Genres Movies</a> | <a href="/genres">Genres</a> | <a href="/reviews">Reviews</a> | <a href="/rentals">Rentals</a> | <a href="/users">Users</a> | <a href="/actors_movies">Actors Movies</a> | <a href="/actors">Actors</a> ]
+
+  <div id="browse">
+
+    <p></p>
+
+    <div id="ActMovTableDiv" style="width: 50%; height: 200px; overflow: auto;"> <!--Scrollable table-->
+      <table id="ActMovTable" border="1" cellpadding="5">
+        <tr>
+          <th></th>
+          <th>movieID</th>
+          <th>*Movie Title</th>
+          <th>actorID</th>
+          <th>*Actor Name</th>
+        </tr>
+
+        {{!-- For each row print Movie Title, Actor Name --}}
+        {{#each data}}
+        <tr>
+          <td><a href="#" onclick="deleteActMov({{this.movieID}}, {{this.actorID}})">Delete</a></td>
+          <td>{{this.movieID}}</td>
+          <td>{{this.title}}</td>
+          <td>{{this.actorID}}</td>
+          <td>{{this.actor}}</td>
+        </tr>
+        {{/each}}
+
+      </table>
+
+
+    </div>
+  
+    <p></p>
+    <button type="button" name="myButton" onclick="newActMov()">New Actor Movie</button>
+    <p><small>*Not in table</small></p>
+  
+    <script language="JavaScript"> // Minimizes big gaps between the button and the table
+      var table = document.getElementById('ActMovTable');
+      var wrapper = document.getElementById('ActMovTableDiv');
+      var maxHeight = 280;
+
+      if (table.offsetHeight < maxHeight) {
+        wrapper.style.height = table.offsetHeight + 'px';
+      } else {
+        wrapper.style.height = maxHeight + 'px';
+      }
+    </script>
+  </div>
+
+  <p>&nbsp;</p>
+  
+  <div id="insert">
+    <form method="POST" id="addActMov" action="/add-actors-movies-html">
+      <fieldset>
+        <legend><strong>Add Actor Movie</strong></legend>
+
+        <label>Movie<br></label>
+        <select name="movieID" required>
+          {{#each movies}}
+            <option value="{{this.movieID}}">{{this.title}}</option>
+          {{/each}}
+        </select>
+        <br>
+
+        <label>Actor<br></label>
+        <select name="actorID" required>
+          {{#each actors}}
+            <option value="{{this.actorID}}">{{this.actor}}</option>
+          {{/each}}
+        </select>
+        <br>
+
+      </fieldset>
+      <input class="btn" type="submit" id="addActMov" value="Add ActMov">
+      <input class="btn" type="button" value="cancel" onClick="browseActMovs()">
+    </form>
+  </div>
+
+  <p>&nbsp;</p>
+
+  <div id="delete">
+    <form method="POST" id="deleteActMov" action="/delete_actors_movies">
+      <fieldset class="fields">
+        <legend><strong>Delete Actor Movie</strong></legend>
+        <p>Are you sure you wish to delete the following?</p>
+        <p><strong id="deleteActorIDLabel"></strong> <span id="deleteActorIDName"></span></p>
+        <input type="hidden" name="movieID" id="deleteMovieID">
+        <input type="hidden" name="actorID" id="deleteActorID">
+      </fieldset>
+      <input class="btn" type="submit" id="DeleteActMov" value="Delete ActMov">
+      <input class="btn" type="button" value="cancel" onClick="browseActMovs()">
+    </form>
+  </div>
+
+</body>
+</html>

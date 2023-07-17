@@ -1,0 +1,164 @@
+<html>
+<head>
+  <title>Reviews</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script language="JavaScript">
+    function showform(dowhat) {
+      /*
+      * Taken from people.html
+      * four DIVS: browse, insert, update, delete
+      * this function sets one visible the others not
+      */
+      if (dowhat == 'insert'){
+        document.getElementById('browse').style.display = 'none';
+        document.getElementById('insert').style.display = 'block';
+        document.getElementById('delete').style.display = 'none';
+      }
+      else if (dowhat == 'update'){
+        document.getElementById('browse').style.display = 'none';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+      }
+      else if (dowhat == 'delete'){
+        document.getElementById('browse').style.display = 'none';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('delete').style.display = 'block';
+      }
+      else { //by default display browse
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+      }
+    }
+    
+    function newReview() { showform('insert'); }
+    function browseReviews() { showform ('browse'); }
+
+    function deleteReview(rid, title) {
+      document.getElementById('deleteReviewID').value = rid;
+      document.getElementById('deleteReviewMovie').textContent = title;
+      document.getElementById('deleteReviewIDLabel').textContent = 'ID: ' + rid;
+      showform ('delete');
+    }
+
+
+  </script>
+</head>
+
+<body onload="browseReviews()">
+  <h1>Reviews</h1>
+
+  [ <a href="/movies">Movies</a> | <a href="/genres_movies">Genres Movies</a> | <a href="/genres">Genres</a> | <a href="/reviews">Reviews</a> | <a href="/rentals">Rentals</a> | <a href="/users">Users</a> | <a href="/actors_movies">Actors Movies</a> | <a href="/actors">Actors</a> ]
+
+  <div id="browse">
+    <p></p>
+
+    <div id="search">
+      <form method="GET" id="searchReviews" action="/search-reviews">
+        <label for="input-search"> <strong>Search by Movie title</strong> </label>
+        <input type="text" name="searchedTerm">
+
+        <input class="btn" type="submit" id="submitSearch" value="Search for Review">
+        <button onclick="window.location.href='/'">Reset</button> 
+      
+      </form> 
+    </div>
+
+    <p></p>
+
+    <p></p>
+
+    <div id="reviewTableDiv" style="width: 50%; height: 200px; overflow: auto;"> <!--Scrollable table-->
+      <table id="reviewTable" border="1" cellpadding="5">
+        <tr>
+         <th></th>
+          {{#each data.[0]}}
+          <th>
+              {{@key}}
+          </th>
+          {{/each}}
+        </tr>
+      
+        {{!-- For each row print ID, title, description, duration --}}
+        {{#each data}}
+        <tr>
+          <td><a href="#" onclick="deleteReview({{this.reviewID}})">Delete</a></td>
+          <td>{{this.reviewID}}</td>
+          <td>{{this.userID}}</td>
+          <td>{{this.movieID}}</td>
+          <td>{{this.rating}}</td>
+        </tr>
+        {{/each}}
+     
+      </table>
+    </div>
+  
+    <p></p>
+    <button type="button" name="myButton" onclick="newReview()">New Review</button>
+  
+    <script language="JavaScript"> // Minimizes big gaps between the button and the table
+      var table = document.getElementById('reviewTable');
+      var wrapper = document.getElementById('reviewTableDiv');
+      var maxHeight = 280;
+
+      if (table.offsetHeight < maxHeight) {
+        wrapper.style.height = table.offsetHeight + 'px';
+      } else {
+        wrapper.style.height = maxHeight + 'px';
+      }
+    </script>
+  </div>
+
+  <p>&nbsp;</p>
+  
+  <div id="insert">
+    <form method="POST" id="addReview" action="/add-review-html">
+      <fieldset>
+        <legend><strong>Add Review</strong></legend>
+
+        <label>Movie<br></label>
+        <select name="movieID">
+          {{#each movies}}
+            <option value="{{this.movieID}}">{{this.title}}</option>
+          {{/each}}
+        </select>
+        <br>
+
+        <label>User<br></label>
+        <select name="userID">
+          {{#each users}}
+            <option value="{{this.userID}}">{{this.email}}</option>
+          {{/each}}
+        </select>     
+        <br>
+
+        <label>Rating (1-10)<br></label> 
+        <input type="number" name="rating" min="1" max="10" step="0.1" id="rating" required>
+        <br>
+        
+      </fieldset>
+      <input class="btn" type="submit" id="addReview" value="Add Review">
+      <input class="btn" type="button" value="cancel" onClick="browseReviews()">
+    </form>
+  </div>
+
+  <p>&nbsp;</p>
+
+  <div id="delete">
+    <form method="POST" id="deleteReview" action="/delete-review">
+      <fieldset class="fields">
+        <legend><strong>Delete Review</strong></legend>
+
+        <p>Are you sure you wish to delete this review?</p>
+        <p><strong id="deleteReviewIDLabel"></strong> <span id="deleteReviewMovie"></span></p>
+        <!-- <label> <strong>Review for: </strong> </label> The Shawshank Redemption -->
+        <input type="hidden" name="reviewID" id="deleteReviewID">
+
+      </fieldset>
+      <input class="btn" type="submit" id="DeleteReview" value="Delete Review">
+      <input class="btn" type="button" value="cancel" onClick="browseReviews()">
+    </form> 
+  </div>
+
+</body>
+</html>

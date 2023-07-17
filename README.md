@@ -49,7 +49,7 @@ ___
 ## Screenshots 
 
 
-### Movies page
+#### Movies page
 ![Movies landing page](UI_Captures/Movies.PNG)
 
 ![Movies implementation of delete functionality](UI_Captures/Movies_DELETE.PNG)

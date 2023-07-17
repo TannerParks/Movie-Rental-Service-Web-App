@@ -25,4 +25,4 @@ Key Features:
 
 NOTE: The server was shutdown at the end of the term but I included screenshots of each web page and its corresponding Create, Read, Update, and Delete functions.
 
-![Page for the Movies table manager]([http://url/to/img.png](https://github.com/TannerParks/Movie-Rental-Service-Web-App/blob/main/UI%20Captures/Movies.PNG)https://github.com/TannerParks/Movie-Rental-Service-Web-App/blob/main/UI%20Captures/Movies.PNG)
+![Page for the Movies table manager](Movies.PNG)

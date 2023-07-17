@@ -5,9 +5,9 @@ This is my final submission for a web-based application designed specifically fo
 ### *NOTE: The server was shutdown at the end of the term so I've included screenshots of the UI below*
 ___
 ### Jump to
-1. [Project Overview & Key Features](#project-overview)
-  
-2. [Screenshots](#screenshots)
+1. [Project Pitch](#project-pitch)
+2. [Key Features](#key-features)
+3. [Screenshots](#screenshots)
     - [Movies page](#movies-page)
     - [Users page](#users-page)
     - [Rentals page](#rentals-page)
@@ -19,13 +19,13 @@ ___
 
 
 
-### Project Overview:
+### Project Pitch:
 
 SchlockBuster, a company previously disrupted by the streaming era, is now venturing into the online movie rental market. However, to effectively compete in a world where streaming reigns supreme, SchlockBuster requires a robust database management system to support their new platform. This database will serve as the backbone for organizing and storing vital information, allowing SchlockBuster to efficiently manage their movie collection, rental histories, user reviews, and genre associations. The app must provide seamless retrieval of movie information, facilitate user interactions, track rental transactions, and ensure effective content management. By establishing connections between movies, rentals, reviews, users, actors, and genres, the web app will empower SchlockBuster to deliver a comprehensive and user-friendly online movie rental experience, positioning them for success in the ever-evolving movie industry. <br><br>
 
 
 
-**Key Features**:
+### Key Features:
 
 - Movie Database: The web app incorporates a Movies table that stores comprehensive information about the movies available in the rental service. Database managers can add, edit, and remove movie records, including details such as movieID, title, description, and duration. Additionally, search functionality has been implemented to allow searching for movies by their title, allowing for efficient retrieval of specific movies based on queries.
 

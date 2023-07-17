@@ -2,11 +2,10 @@
 **Description**: 
 This is my final submission for a web-based application designed specifically for database managers of a movie rental service (think Netflix when they were sending DVDs in the mail). This application provides an interface for managing and maintaining the intricate database structure underlying a rental service. It leverages JavaScript, HTML, CSS, and utilizes SQL (MariaDB) for robust and efficient database management operations.
 
-
-
 ### ***NOTE: Below the key features breakdown, I've uploaded screenshots of each page along with their corresponding create, read, update, and delete functionalities since the server was shutdown at the end of the term***
 ___
-### Table of Contents
+### Jump to
+1. [Movies page](#movies-page)
 
 
 
@@ -38,7 +37,7 @@ SchlockBuster, a company previously disrupted by the streaming era, is now ventu
 ___
 
 
-## Movies page {#movies}
+## Movies page
 ![Movies landing page](UI_Captures/Movies.PNG)
 
 ![Movies implementation of delete functionality](UI_Captures/Movies_DELETE.PNG)

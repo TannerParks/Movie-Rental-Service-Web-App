@@ -60,7 +60,7 @@ app.get('/genres_movies', function(req, res) {
                 let movies = {};
                 results2.forEach((movie) => {movies[movie.movieID] = movie.title});
 
-                // Map genre names and movie titles to the Genres_Movies results    (Not mine)
+                // Map genre names and movie titles to the Genres_Movies results
                 results1 = results1.map((row) => {
                     row.genre_name = genres[row.genreID]; // Add the genre_name property to each row
                     row.title = movies[row.movieID]; // Add the movie title property to each row
@@ -511,7 +511,7 @@ app.post('/delete-actor', function(req, res){ // Deletes a genre from the databa
 /*
 Update entries in tables
 */
-app.get('/movie/:id', function(req, res) {  // Got help with this function so not all mine
+app.get('/movie/:id', function(req, res) {
     // Get the movie ID from the URL parameters
     let movieID = req.params.id;
   

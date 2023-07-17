@@ -20,3 +20,7 @@ Key Features:
 - Genre Database: The Genres table contains information about movie genres offered by the rental service. Database managers can manage genre records, including genreID and genre_name. This feature facilitates effective organization and categorization of movies based on genres.
 
 - Movie-Genre Relationship: The Genres_Movies table acts as a junction table, linking movies and genres within the rental service. Database managers can manage the association between movies and genres using movieID (linked to Movies table) and genreID (linked to Genres table). This feature enables efficient categorization and searchability of movies based on genres.
+
+
+
+NOTE: The server was shutdown at the end of the term but I included screenshots of each web page and its corresponding Create, Read, Update, and Delete functions.

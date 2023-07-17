@@ -6,14 +6,15 @@ This is my final submission for a web-based application designed specifically fo
 ___
 ### Jump to
 1. [Project Overview & Key Features](#project-overview)
-2. [Movies page](#movies-page)
-3. [Users page](#users-page)
-4. [Rentals page](#rentals-page)
-5. [Reviews page](#reviews-page)
-6. [Actors page](#actors-page)
-7. [Actors-Movies Junction page](#actors-movies-junction-page)
-8. [Genres page](#genres-page)
-9. [Genres-Movies Junction page](#genres-movies-junction-page)
+2. [Screenshots](#screenshots)
+3.     [Movies page](#movies-page)
+4.     [Users page](#users-page)
+5.     [Rentals page](#rentals-page)
+6.     [Reviews page](#reviews-page)
+7.     [Actors page](#actors-page)
+8.     [Actors-Movies Junction page](#actors-movies-junction-page)
+9.     [Genres page](#genres-page)
+10.     [Genres-Movies Junction page](#genres-movies-junction-page)
 
 
 

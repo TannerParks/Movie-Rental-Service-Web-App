@@ -25,4 +25,4 @@ Key Features:
 
 NOTE: The server was shutdown at the end of the term but I included screenshots of each web page and its corresponding Create, Read, Update, and Delete functions.
 
-![Page for the Movies table manager](UI Captures/Movies.PNG)
+![Page for the Movies table manager](UI_Captures/Movies.PNG)

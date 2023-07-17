@@ -32,6 +32,7 @@
 
 ![Movies implementation of update functionality](UI_Captures/Movies_UPDATE.PNG)
 
+<br><br>
 **Users page**
 ![Users landing page](UI_Captures/Users.PNG)
 

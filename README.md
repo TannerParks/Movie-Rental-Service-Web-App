@@ -23,6 +23,12 @@ Key Features:
 
 
 
-NOTE: The server was shutdown at the end of the term but I included screenshots of each web page and its corresponding Create, Read, Update, and Delete functions.
+NOTE: The server was shutdown at the end of the term so I'm including screenshots of each page.
 
-![Page for the Movies table manager](UI_Captures/Movies.PNG)
+![Movies landing page](UI_Captures/Movies.PNG)
+
+![Movies implementation of delete functionality](UI_Captures/Movies_DELETE.PNG)
+
+![Movies implementation of insert functionality](UI_Captures/Movies_INSERT.PNG)
+
+![Movies implementation of update functionality](UI_Captures/Movies_UPDATE.PNG)

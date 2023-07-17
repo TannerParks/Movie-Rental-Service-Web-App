@@ -1,6 +1,7 @@
 # Movie-Rental-Service-Web-App
 **Description**: The Movie Rental Service Web App is an efficient web-based application designed specifically for database managers of a movie rental service (think Netflix when they were sending DVDs in the mail). This comprehensive application provides an interface for managing and maintaining the intricate database structure underlying a rental service. It leverages JavaScript, HTML, CSS, and utilizes SQL (MariaDB) for robust and efficient database management operations. <br><br>
 
+## NOTE: I've uploaded screenshots of each page below since the server was shutdown at the end of the term
 
 **Key Features**:
 
@@ -20,9 +21,6 @@
 
 - Movie-Genre Relationship: The Genres_Movies table acts as a junction table, linking movies and genres within the rental service. Database managers can manage the association between movies and genres using movieID (linked to Movies table) and genreID (linked to Genres table). This feature enables efficient categorization and searchability of movies based on genres. <br><br>
 
-
-
-NOTE: The server was shutdown at the end of the term so I'm including screenshots of each page.
 
 ![Movies landing page](UI_Captures/Movies.PNG)
 

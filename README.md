@@ -2,7 +2,7 @@
 **Description**: 
 This is my final submission for a web-based application designed specifically for database managers of a movie rental service (think Netflix when they were sending DVDs in the mail). This application provides an interface for managing and maintaining the intricate database structure underlying a rental service. It leverages JavaScript, HTML, CSS, and utilizes SQL (MariaDB) for robust and efficient database management operations.
 
-### ***NOTE: Below the key features breakdown, I've uploaded screenshots of each page along with their corresponding create, read, update, and delete functionalities since the server was shutdown at the end of the term***
+### *NOTE: The server was shutdown at the end of the term so I've included screenshots of the UI below*
 ___
 ### Jump to
 1. [Project Overview & Key Features](#project-overview)

@@ -45,7 +45,7 @@ SchlockBuster, a company previously disrupted by the streaming era, is now ventu
 
 
 ___
-<br>
+
 ## Screenshots 
 
 
